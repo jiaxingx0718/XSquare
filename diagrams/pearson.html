@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-6e72c2f6dbaca68b77c1107d13855c94"}, "mark": {"type": "bar", "color": "gray"}, "encoding": {"tooltip": [{"field": "feature", "title": "\u7279\u5f81", "type": "nominal"}, {"field": "IC", "format": ".4f", "title": "IC", "type": "quantitative"}, {"field": "p_value", "format": ".2e", "title": "p\u503c", "type": "quantitative"}, {"field": "R2", "format": ".4f", "title": "R2", "type": "quantitative"}], "x": {"field": "feature", "sort": "-y", "title": null, "type": "nominal"}, "y": {"field": "IC", "title": null, "type": "quantitative"}}, "height": 150, "title": "\u5355\u53d8\u91cf\u56de\u5f52\u7ed3\u679c", "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-6e72c2f6dbaca68b77c1107d13855c94": [{"feature": "past_rv", "IC": 0.7712780353626055, "p_value": 0.0, "R2": 0.5948698078328014}, {"feature": "past_total_volume", "IC": 0.6398859097434995, "p_value": 0.0, "R2": 0.40945397748826695}, {"feature": "past_total_value", "IC": 0.6397154585429737, "p_value": 0.0, "R2": 0.40923586789884747}, {"feature": "past_up_ratio", "IC": 0.4699833647518752, "p_value": 0.0, "R2": 0.2208843631434929}, {"feature": "past_weighted_mid_bid_ask_price_range", "IC": 0.43767132024799055, "p_value": 0.0, "R2": 0.19155618456761592}, {"feature": "past_price_range", "IC": 0.40925476278196055, "p_value": 0.0, "R2": 0.16748946085971805}, {"feature": "past_weighted_bid_ask_price_diff", "IC": 0.13201668124052782, "p_value": 1.145604198669351e-256, "R2": 0.01742840412576474}, {"feature": "past_weighted_bid_ask_volume_diff", "IC": 0.11703008449596276, "p_value": 8.918972704468708e-202, "R2": 0.013696040677131815}, {"feature": "past_weighted_bid_ask_price", "IC": 0.054886940697962724, "p_value": 1.2833999111688485e-45, "R2": 0.0030125762591818317}, {"feature": "past_ac_log_return", "IC": -0.0518537829567921, "p_value": 6.747262981402638e-41, "R2": 0.0026888148069318385}, {"feature": "past_signed_volume", "IC": -0.14438682868033786, "p_value": 3.980898721438248e-307, "R2": 0.02084755629636592}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
